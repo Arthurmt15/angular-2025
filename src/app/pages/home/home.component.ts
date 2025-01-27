@@ -6,7 +6,7 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
-})
+}) 
 export class HomeComponent implements OnInit {
 
   funcionarios: Funcionario[] = [];
