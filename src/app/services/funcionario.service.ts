@@ -20,4 +20,7 @@ export class FuncionarioService {
   createFuncionario(funcionario: Funcionario) : Observable<Response<Funcionario[]>> {
     return this.http.post<Response<Funcionario[]>>(`${this.apiUrl}`,funcionario );
   }
+  deleteFuncionario(id: number) : Observable<Response<Funcionario[]>> {
+    return this.http.delete<Response<Funcionario[]>>(`${this.apiUrl}/${id}` );
+  }
 }

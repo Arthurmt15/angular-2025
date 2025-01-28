@@ -32,13 +32,13 @@ export class FuncionarioFormComponent implements OnInit {
     if (this.funcionarioForm.valid) {
       const funcionarioData = {
         ...this.funcionarioForm.value,
-        ativo: Boolean(this.funcionarioForm.value.ativo), // Converte para booleano
-        dataDeCriacao: new Date().toISOString(), // Converte para string ISO
-        dataDeAlteracao: new Date().toISOString() // Converte para string ISO
+        ativo: Boolean(this.funcionarioForm.value.ativo), 
+        dataDeCriacao: new Date().toISOString(),
+        dataDeAlteracao: new Date().toISOString() 
       };
       this.onSubmit.emit(funcionarioData);
     } else {
-      console.error('Formulário inválido');
+      console.error('Formulário inválido'); 
     }
   }
 

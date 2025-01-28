@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/models/Funcionario';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   funcionarios: Funcionario[] = [];
   funcionarioGeral: Funcionario[] = []; 
 
-  constructor( private funcionarioService : FuncionarioService) { }
+  constructor( private funcionarioService : FuncionarioService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -39,5 +40,11 @@ export class HomeComponent implements OnInit {
       return funcionario.nome.toLowerCase().includes(value);
     })
   }
-
+  excluirFuncionario(funcionario: Funcionario) {
+    this.funcionarioService.deleteFuncionario(funcionario.id).subscribe({
+      next: () => {        
+        this.funcionarios = this.funcionarios.filter(f => f.id !== funcionario.id); 
+      },      
+    }); 
+  }
 }
